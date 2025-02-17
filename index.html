@@ -4,37 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Big 5 E-Team Signup</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f8f8f8;
-        }
-        h1 {
-            color: #0073e6;
-        }
-        p {
-            font-size: 18px;
-            color: #333;
-        }
-        .highlight {
-            font-size: 22px;
-            font-weight: bold;
-            color: #d9534f;
-        }
-    </style>
     <script>
+        function modifySignupForm() {
+            let storeField = document.querySelector('input[name="store"], select[name="store"]');
+            let emailField = document.querySelector('input[name="email"]');
+
+            if (storeField) {
+                storeField.value = "206";  // Pre-fill store number
+                storeField.readOnly = true; // Lock store field
+                storeField.style.backgroundColor = "#e0e0e0";
+            }
+
+            document.querySelectorAll('input, select, textarea').forEach(el => {
+                if (!['email', 'store'].includes(el.name)) {
+                    el.style.display = 'none'; // Hide all unnecessary fields
+                }
+            });
+        }
+
+        // Redirect and modify the form on arrival
         setTimeout(function() {
             window.location.href = "https://www.big5sportinggoods.com/instore_eteam_join_page.html";
-        }, 5000); // Redirects after 5 seconds
+            setTimeout(modifySignupForm, 3000); // Wait 3 sec after redirect
+        }, 2000);
     </script>
 </head>
 <body>
-    <h1>Welcome to the Big 5 E-Team Signup!</h1>
-    <p>To ensure you get your rewards, please enter:</p>
-    <p class="highlight">Store #206</p>
-    <p>in the "Store" field when signing up.</p>
-    <p>Redirecting you to the signup page in 5 seconds...</p>
+    <h1>Signing You Up...</h1>
+    <p>Please wait while we pre-fill your store number.</p>
 </body>
 </html>
