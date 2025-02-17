@@ -3,34 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big 5 E-Team Signup</title>
-    <script>
-        function modifySignupForm() {
-            let storeField = document.querySelector('input[name="store"], select[name="store"]');
-            let emailField = document.querySelector('input[name="email"]');
-
-            if (storeField) {
-                storeField.value = "206";  // Pre-fill store number
-                storeField.readOnly = true; // Lock store field
-                storeField.style.backgroundColor = "#e0e0e0";
-            }
-
-            document.querySelectorAll('input, select, textarea').forEach(el => {
-                if (!['email', 'store'].includes(el.name)) {
-                    el.style.display = 'none'; // Hide all unnecessary fields
-                }
-            });
+    <title>E-Team Sign Up Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-
-        // Redirect and modify the form on arrival
-        setTimeout(function() {
-            window.location.href = "https://www.big5sportinggoods.com/instore_eteam_join_page.html";
-            setTimeout(modifySignupForm, 3000); // Wait 3 sec after redirect
-        }, 2000);
-    </script>
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+    </style>
 </head>
 <body>
-    <h1>Signing You Up...</h1>
-    <p>Please wait while we pre-fill your store number.</p>
+
+    <div class="container">
+        <h2>E-Team Sign Up</h2>
+
+        <label for="control_COLUMN18">Store Number*</label>
+        <input type="text" name="Homestore" id="control_COLUMN18" maxlength="3" placeholder="Enter Store Number">
+
+        <label for="eJoinEmail">Email Address*</label>
+        <input type="email" id="eJoinEmail" name="Email" placeholder="me@example.com">
+
+        <button id="sailthru-signup-optin">Join Our E-Team</button>
+    </div>
+
 </body>
 </html>
